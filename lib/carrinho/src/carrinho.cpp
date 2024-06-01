@@ -76,9 +76,14 @@ void Carrinho::run()
         break;
         case PARA: para();
         break;
-        default: freia();
+        default: //freia();
         break;
     }
     mA.run();
     mB.run();
+}
+void Carrinho::setupMotores()
+{
+    mB.setup();
+    mA.setup();
 }

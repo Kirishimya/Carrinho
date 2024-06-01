@@ -21,6 +21,7 @@ class Motores {
     void addPWM(short v);
     void desliga();
     void run();
+    void setup();
 };
 
 #endif

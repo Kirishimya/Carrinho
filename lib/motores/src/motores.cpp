@@ -4,17 +4,14 @@ Motores::Motores(short p1, short p2)
 {
     this->p1 = p1;
     this->p2 = p2;
-    sentido = 1;
+    setSentido(0);
     pwm = 0;
-    estado1 = 0;
-    estado2 = 0;
+    maxPwm = 255;
 }
 Motores::Motores()
 {
-    sentido = 1;
+    setSentido(0);
     pwm = 0;
-    estado1 = 0;
-    estado2 = 0;
 }
 void Motores::setP1(short p)
 {
@@ -62,12 +59,19 @@ short Motores::getMaxPWM()
 }
 void Motores::desliga()
 {
-    pwm = 0;
-    estado1 = 0;
-    estado2 = 0;
+    setPWM(0);
+    setSentido(0);
 }
 void Motores::run()
 {
-    analogWrite(p1, estado1 * pwm);
-    analogWrite(p2, estado2 * pwm);
+    digitalWrite(p1, estado1);
+    digitalWrite(p2, estado2);
+    // analogWrite(p1, estado1*pwm);
+    // analogWrite(p2, estado2*pwm);
+}
+void Motores::setup()
+{
+    pinMode(p1, OUTPUT);
+    pinMode(p2, OUTPUT);
+    maxPwm = 255;
 }

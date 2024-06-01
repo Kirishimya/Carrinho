@@ -10,7 +10,6 @@
 
 class Carrinho {
     public:
-    Carrinho();
 
     Motores mA;//esquerdo
     Motores mB;//direto
@@ -31,6 +30,7 @@ class Carrinho {
     void freia();
     void setVelocidadeMax(short v);
     void run();
+    void setupMotores();
 
 };
 
